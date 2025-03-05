@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login & Sign Up</title>
     <style>
-        /* Google Font */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-        /* Reset & Background */
         * {
             margin: 0;
             padding: 0;
@@ -22,6 +20,7 @@
             align-items: center;
             height: 100vh;
             background: linear-gradient(135deg, #667eea, #764ba2);
+            position: relative;
         }
 
         .container {
@@ -41,7 +40,6 @@
         }
 
         .input-group {
-            position: relative;
             width: 100%;
         }
 
@@ -64,20 +62,6 @@
             box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.6);
         }
 
-        .input-field::placeholder {
-            color: rgba(0, 0, 0, 0.6);
-        }
-
-        /* Error Message */
-        .error {
-            color: #ff3333;
-            font-size: 14px;
-            margin-top: -5px;
-            margin-bottom: 10px;
-            display: none;
-        }
-
-        /* Button */
         .btn {
             width: 100%;
             padding: 12px;
@@ -112,6 +96,33 @@
             text-decoration: underline;
         }
 
+        /* User Profile */
+        .user-profile {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 15px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .user-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .username {
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
         /* Hide signup initially */
         .signup-container {
             display: none;
@@ -119,6 +130,11 @@
     </style>
 </head>
 <body>
+    <div class="user-profile" id="userProfile" style="display: none;">
+        <img id="profilePic" src="" alt="Profile Picture">
+        <span class="username" id="profileName"></span>
+    </div>
+
     <div class="container">
         <!-- Login Form -->
         <div class="login-container">
@@ -160,12 +176,14 @@
             let email = document.getElementById("signup-email").value;
             let password = document.getElementById("signup-password").value;
 
-            if (password.length < 6) {
-                alert("Password must be at least 6 characters long!");
-                return false;
-            }
+            let randomPFPs = [
+                'https://i.pravatar.cc/150?img=1',
+                'https://i.pravatar.cc/150?img=2',
+                'https://i.pravatar.cc/150?img=3'
+            ];
+            let profilePic = randomPFPs[Math.floor(Math.random() * randomPFPs.length)];
 
-            let userData = { username, email, password };
+            let userData = { username, email, password, profilePic };
             localStorage.setItem("user", JSON.stringify(userData));
             alert("Sign Up Successful! Now login.");
             toggleForm('login');
@@ -176,12 +194,13 @@
             event.preventDefault();
             let username = document.getElementById("login-username").value;
             let password = document.getElementById("login-password").value;
-
             let storedUser = JSON.parse(localStorage.getItem("user"));
 
             if (storedUser && storedUser.username === username && storedUser.password === password) {
                 alert("Login Successful!");
-                window.location.href = "dashboard.html";
+                document.getElementById("userProfile").style.display = "flex";
+                document.getElementById("profileName").innerText = storedUser.username;
+                document.getElementById("profilePic").src = storedUser.profilePic;
             } else {
                 alert("Invalid Username or Password!");
             }
