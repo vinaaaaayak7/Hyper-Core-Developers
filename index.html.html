@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Sign Up</title>
+    <style>
+        /* Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        /* Reset & Background */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 40px;
+            width: 350px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .container h2 {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            position: relative;
+            width: 100%;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.5);
+            color: black;
+            font-size: 16px;
+            outline: none;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .input-field:focus {
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.6);
+        }
+
+        .input-field::placeholder {
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        /* Error Message */
+        .error {
+            color: #ff3333;
+            font-size: 14px;
+            margin-top: -5px;
+            margin-bottom: 10px;
+            display: none;
+        }
+
+        /* Button */
+        .btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 25px;
+            background: #ff4d4d;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #e63946;
+            box-shadow: 0px 0px 10px rgba(255, 77, 77, 0.6);
+        }
+
+        .switch {
+            margin-top: 15px;
+            font-size: 14px;
+            color: white;
+        }
+
+        .switch a {
+            text-decoration: none;
+            color: #ffcccb;
+            font-weight: 600;
+        }
+
+        .switch a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hide signup initially */
+        .signup-container {
+            display: none;
+        }
+
+        /* Password Toggle Button */
+        .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: black;
+            font-size: 16px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Login Form -->
+        <div class="login-container">
+            <h2>Login</h2>
+            <form>
+                <input type="text" class="input-field" placeholder="Username" required>
+                
+                <div class="input-group">
+                    <input type="password" id="login-password" class="input-field" placeholder="Password" required>
+                    <span class="toggle-password" onclick="togglePassword('login-password')">👁️</span>
+                </div>
+
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <div class="switch">
+                Don't have an account? <a href="#" onclick="toggleForm('signup')">Sign Up</a>
+            </div>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div class="signup-container">
+            <h2>Sign Up</h2>
+            <form onsubmit="return validateSignup()">
+                <input type="text" class="input-field" placeholder="Username" required>
+
+                <!-- Email Input with Error Message -->
+                <input type="email" id="email" class="input-field" placeholder="Email" required>
+                <p class="error" id="emailError">Invalid email address</p>
+
+                <!-- Password Input -->
+                <div class="input-group">
+                    <input type="password" id="signup-password" class="input-field" placeholder="Password" required>
+                    <span class="toggle-password" onclick="togglePassword('signup-password')">👁️</span>
+                </div>
+                <p class="error" id="passwordError">Password must be at least 6 characters long</p>
+
+                <!-- Confirm Password -->
+                <div class="input-group">
+                    <input type="password" id="confirm-password" class="input-field" placeholder="Confirm Password" required>
+                    <span class="toggle-password" onclick="togglePassword('confirm-password')">👁️</span>
+                </div>
+                <p class="error" id="confirmPasswordError">Passwords do not match</p>
+
+                <button type="submit" class="btn">Sign Up</button>
+            </form>
+            <div class="switch">
+                Already have an account? <a href="#" onclick="toggleForm('login')">Login</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleForm(type) {
+            let loginContainer = document.querySelector('.login-container');
+            let signupContainer = document.querySelector('.signup-container');
+
+            if (type === 'signup') {
+                loginContainer.style.display = 'none';
+                signupContainer.style.display = 'block';
+            } else {
+                loginContainer.style.display = 'block';
+                signupContainer.style.display = 'none';
+            }
+        }
+
+        function validateSignup() {
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("signup-password").value;
+            let confirmPassword = document.getElementById("confirm-password").value;
+
+            let emailError = document.getElementById("emailError");
+            let passwordError = document.getElementById("passwordError");
+            let confirmPasswordError = document.getElementById("confirmPasswordError");
+
+            let isValid = true;
+
+            // Email Validation
+            let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(email)) {
+                emailError.style.display = "block";
+                isValid = false;
+            } else {
+                emailError.style.display = "none";
+            }
+
+            // Password Length Validation
+            if (password.length < 6) {
+                passwordError.style.display = "block";
+                isValid = false;
+            } else {
+                passwordError.style.display = "none";
+            }
+
+            // Confirm Password Validation
+            if (password !== confirmPassword) {
+                confirmPasswordError.style.display = "block";
+                isValid = false;
+            } else {
+                confirmPasswordError.style.display = "none";
+            }
+
+            return isValid;
+        }
+
+        function togglePassword(id) {
+            let input = document.getElementById(id);
+            if (input.type === "password") {
+                input.type = "text";
+            } else {
+                input.type = "password";
+            }
+        }
+    </script>
+</body>
+</html>
