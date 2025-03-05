@@ -3,191 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login & Sign Up</title>
+    <title>Login & Signup</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            position: relative;
-        }
-
-        .container {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            padding: 40px;
-            width: 350px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .container h2 {
-            color: white;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-
-        .input-group {
-            width: 100%;
-        }
-
-        .input-field {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 25px;
-            background: rgba(255, 255, 255, 0.5);
-            color: black;
-            font-size: 16px;
-            outline: none;
-            text-align: center;
-            transition: 0.3s;
-        }
-
-        .input-field:focus {
-            background: rgba(255, 255, 255, 0.8);
-            box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.6);
-        }
-
-        .btn {
-            width: 100%;
-            padding: 12px;
-            margin-top: 20px;
-            border: none;
-            border-radius: 25px;
-            background: #ff4d4d;
-            color: white;
-            font-size: 18px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #e63946;
-            box-shadow: 0px 0px 10px rgba(255, 77, 77, 0.6);
-        }
-
-        .switch {
-            margin-top: 15px;
-            font-size: 14px;
-            color: white;
-        }
-
-        .switch a {
-            text-decoration: none;
-            color: #ffcccb;
-            font-weight: 600;
-        }
-
-        .switch a:hover {
-            text-decoration: underline;
-        }
-
-        /* User Profile */
-        .user-profile {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 8px 15px;
-            border-radius: 30px;
-            backdrop-filter: blur(10px);
-        }
-
-        .user-profile img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .username {
-            color: white;
-            font-size: 16px;
-            font-weight: 500;
-        }
-
-        /* Hide signup initially */
-        .signup-container {
-            display: none;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; background: linear-gradient(135deg, #667eea, #764ba2); }
+        .container { background: rgba(255, 255, 255, 0.2); border-radius: 15px; padding: 40px; width: 350px; text-align: center; backdrop-filter: blur(10px); }
+        h2 { color: white; font-weight: 600; margin-bottom: 20px; }
+        .input-field { width: 100%; padding: 12px; margin: 10px 0; border-radius: 25px; background: rgba(255, 255, 255, 0.5); text-align: center; outline: none; }
+        .btn { width: 100%; padding: 12px; margin-top: 20px; border-radius: 25px; background: #ff4d4d; color: white; font-size: 18px; cursor: pointer; }
+        .btn:hover { background: #e63946; }
+        .switch { margin-top: 15px; font-size: 14px; color: white; }
+        .switch a { text-decoration: none; color: #ffcccb; font-weight: 600; }
     </style>
 </head>
 <body>
-    <div class="user-profile" id="userProfile" style="display: none;">
-        <img id="profilePic" src="" alt="Profile Picture">
-        <span class="username" id="profileName"></span>
-    </div>
-
     <div class="container">
         <!-- Login Form -->
-        <div class="login-container">
+        <div id="login-box">
             <h2>Login</h2>
             <form onsubmit="return loginUser(event)">
                 <input type="text" id="login-username" class="input-field" placeholder="Username" required>
                 <input type="password" id="login-password" class="input-field" placeholder="Password" required>
                 <button type="submit" class="btn">Login</button>
             </form>
-            <div class="switch">
-                Don't have an account? <a href="#" onclick="toggleForm('signup')">Sign Up</a>
-            </div>
+            <div class="switch">Don't have an account? <a href="#" onclick="toggleForm('signup')">Sign Up</a></div>
         </div>
 
         <!-- Sign Up Form -->
-        <div class="signup-container">
+        <div id="signup-box" style="display: none;">
             <h2>Sign Up</h2>
             <form onsubmit="return signupUser(event)">
                 <input type="text" id="signup-username" class="input-field" placeholder="Username" required>
-                <input type="email" id="signup-email" class="input-field" placeholder="Email" required>
                 <input type="password" id="signup-password" class="input-field" placeholder="Password" required>
                 <button type="submit" class="btn">Sign Up</button>
             </form>
-            <div class="switch">
-                Already have an account? <a href="#" onclick="toggleForm('login')">Login</a>
-            </div>
+            <div class="switch">Already have an account? <a href="#" onclick="toggleForm('login')">Login</a></div>
         </div>
     </div>
 
     <script>
         function toggleForm(type) {
-            document.querySelector('.login-container').style.display = (type === 'signup') ? 'none' : 'block';
-            document.querySelector('.signup-container').style.display = (type === 'signup') ? 'block' : 'none';
+            document.getElementById('login-box').style.display = (type === 'signup') ? 'none' : 'block';
+            document.getElementById('signup-box').style.display = (type === 'signup') ? 'block' : 'none';
         }
 
         function signupUser(event) {
             event.preventDefault();
             let username = document.getElementById("signup-username").value;
-            let email = document.getElementById("signup-email").value;
             let password = document.getElementById("signup-password").value;
-
             let randomPFPs = [
-                'https://i.pravatar.cc/150?img=1',
-                'https://i.pravatar.cc/150?img=2',
+                'https://i.pravatar.cc/150?img=1', 
+                'https://i.pravatar.cc/150?img=2', 
                 'https://i.pravatar.cc/150?img=3'
             ];
             let profilePic = randomPFPs[Math.floor(Math.random() * randomPFPs.length)];
 
-            let userData = { username, email, password, profilePic };
+            let userData = { username, password, profilePic };
             localStorage.setItem("user", JSON.stringify(userData));
             alert("Sign Up Successful! Now login.");
             toggleForm('login');
-            return false;
         }
 
         function loginUser(event) {
@@ -198,13 +74,10 @@
 
             if (storedUser && storedUser.username === username && storedUser.password === password) {
                 alert("Login Successful!");
-                document.getElementById("userProfile").style.display = "flex";
-                document.getElementById("profileName").innerText = storedUser.username;
-                document.getElementById("profilePic").src = storedUser.profilePic;
+                window.location.href = "dashboard.html";
             } else {
                 alert("Invalid Username or Password!");
             }
-            return false;
         }
     </script>
 </body>
