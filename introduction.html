@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Hyper Core</title>
 
-    <!-- External CSS & JS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 
     <style>
@@ -21,9 +20,10 @@
             color: white;
             padding: 50px 20px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
         }
 
         .container {
@@ -31,6 +31,7 @@
             max-width: 1000px;
             align-items: center;
             gap: 40px;
+            margin-bottom: 80px; /* Increased space between sections */
         }
 
         .text-section {
@@ -85,7 +86,54 @@
             box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
         }
 
-        /* Mobile View - Hide Image */
+        /* Our Team Members Section */
+        .team-section {
+            text-align: center;
+            margin-top: 80px; /* Increased space */
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .team-section h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .team-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .team-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .team-card h3 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .team-card p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Mobile View */
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -100,33 +148,39 @@
 <body>
 
     <div class="container" data-aos="fade-up">
-        
         <div class="image-container">
             <img src="https://media-hosting.imagekit.io//790cc49dd66c46ab/about-us.png?Expires=1836107658&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=Pr8DSZr6dbSmzkbNmHywv1D-24wXM7TjlIUA58YKuvO60VssT6UYmIxNj71Eud8SO6qN-Zy4JGSUhBdckKp7TEpT8-z4WQs0E4D-lL2Qm5SwQxFvjYWkF1JnWR0oG9TPI82roND2TLM4A5OCo8g384ID4vVXFIIoF4MZy36mcX8p6a40hUAp3ISEY8Yl4BelAmuKiwLY118sDhTfkd4LyqLlMcu8IAENOphtkuLJtFy2xg9w7SVUcJr-~OT6ZlBdWUUAe9tGo7-S2sYDf1kL5QY2pN6L7UBj8nqGFdpWL81l2EP6DfGbbWPTH2EPkymhDhBvmijVTgyC86K6FyDHaA__" alt="About Us">
         </div>
-
         <div class="text-section">
             <h1>Let’s Introduce <br> Hyper Core.</h1>
             <p>A dedicated team of developers offering a wide range of services.</p>
-
             <p><b>Our Expertise:</b></p>
-
             <p>✔ <b>Minecraft Development:</b> Custom plugins, builds, and unique server features.</p>
             <p>✔ <b>Web & App Development:</b> Creating tailored websites and applications.</p>
             <p>✔ <b>Hosting Management:</b> Reliable and scalable hosting solutions.</p>
             <p>✔ <b>Discord Server Management:</b> Professional setups and custom bots.</p>
-
             <p>Whether you’re starting a new project or enhancing an existing one, Hyper Core is here to help.</p>
-
             <a href="index.html" class="cta-button">Hire Us Now</a>
         </div>
+    </div>
 
+    <!-- Our Team Members Section -->
+    <div class="team-section" data-aos="fade-up">
+        <h2>Our Team Members</h2>
+        <div class="team-grid">
+            <div class="team-card"><h3>VINAYAK</h3><p>(Lead Developer)</p></div>
+            <div class="team-card"><h3>RISHAV</h3><p>(Server Developer)</p></div>
+            <div class="team-card"><h3>DURGESH</h3><p>(Server Developer)</p></div>
+            <div class="team-card"><h3>AINUL</h3><p>(Server Developer)</p></div>
+            <div class="team-card"><h3>NEHA</h3><p>(Web Designer)</p></div>
+            <div class="team-card"><h3>RAJ</h3><p>(Security Expert)</p></div>
+            <div class="team-card"><h3>YASH</h3><p>(Server Developer)</p></div>
+            <div class="team-card"><h3>SAMEER</h3><p>(Discord Server Manager)</p></div>
+        </div>
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-    </script>
+    <script>AOS.init({ duration: 1000, once: true });</script>
 
 </body>
 </html>
