@@ -184,3 +184,202 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Hyper Core</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            background: linear-gradient(135deg, #000428, #004e92);
+            color: white;
+            padding: 50px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1000px;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .text-section {
+            flex: 1;
+        }
+
+        .text-section h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .text-section p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .service-section {
+            text-align: center;
+            margin-top: 80px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .service-section h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .service-card img {
+            width: 100%;
+            max-width: 100px;
+            margin-bottom: 10px;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .image-container {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Existing Content Here -->
+    
+    <!-- Service Offers Section -->
+    <div class="service-section">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <img src="https://media-hosting.imagekit.io//f7af7df167ea4a59/1%20(1).png?Expires=1836123867&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=N5FqiUg5a826FE9SLTbbinBejdtyTLhjvTJz1QxDMrXb7gl0dQPCAcEEguP0JhgE3sFW8mdAGs4m2FsKGnedAtA75~AaAe0bofdTBcTJVcTVOQOzHro2hXAWIqSVYL57kRpYpH8XXMAx1OntXTFfpL4a~dJRkXn6DcJAEEbwGxYJR4VN7WFDsiYJwsvulzIl4U9El8omMVElNL~kgJkH9J-KuMJiU6YHg6py6jW760tVEr8724S5beYMdk8pwtWOcJQg3QB~tgojPhhsNs4YhJiVAW~shrwoxpiWM1hg45HL0BMjXE9QOeZHvndwrVFftpQCxQKuQ5Y0MP89OMNAXQ__" alt="Minecraft Development">
+                <h3>Minecraft Server Developing</h3>
+            </div>
+            <div class="service-card">
+                <img src="https://media-hosting.imagekit.io//394a4c1da8974e87/1%20(5).png?Expires=1836123905&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=sTMJvX~YBcb9lJ81z7GDGybTx475EAH5hyjZ1H8DE1Y0G5c1mOpFe96N1gZTWhWnay9Oe6qvTaGJlADcV03gxdCxA0RhU0xOd-1S8jfUFz38dadNdvds~vii09C09-jXgp3K3S-d5NZgKzKfAdRcxBVn-j9CxNR5uzxonxoUrjH7DFNtQ1Uh3aYBKvQLiLqlqFnqTg7JLHmztReRRmPxa1DDSLlI9xJciHZ-gcv67-ZG2lV1ACsZD-SUvo0X2A4xemgUDpFcy2bRs0QdxRExxm1hCOxNfegem2OYV4RgnxK~sfGBanf1vdXVfEYXtzHwuOP~fCeQp64UT5adzBXbiQ__" alt="Minecraft Plugin Developing">
+                <h3>Minecraft Plugin Developing</h3>
+            </div>
+            <div class="service-card">
+                <img src="https://media-hosting.imagekit.io//d2b1596b49c04e39/1%20(3).png?Expires=1836123908&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=S6CMHK73AP~NZ4njc3-fvNXKf4~tRoR6CM7goYYYQYCRt6jIGwdhog9MgUvXFTurLx1d5VyQVwDFicGm4c8OROQrFfTb3proAIhf0PF-VdJ67f71q4bleIHDk~yvw9SaVcYB3tPbmGrBqfHTMFOh-XfkenaQM9dB~LcSmj0ePB2CdAlAFwoZGk1pwyQ~SW1dusVvgknB211oB~mRZ8wW7q5Ppe4pmhHxJRqiWiNXI8893rnV6HSuFbPc8DpH4Df7wVdeG-ECJ4Us1vMPncpqn4HDBxLnl~uS9~nr1sGmH7Zn1KF~jQD~4SGuvZiKMiEd6G9JAT7xzypkzO~mnH2Nvw__" alt="Minecraft Server Management">
+                <h3>Minecraft Server Management</h3>
+            </div>
+            <div class="service-card">
+                <img src="https://media-hosting.imagekit.io//55c2e835b0924587/1%20(4).png?Expires=1836123912&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=1EOCODSAvEy~ADEPS8JNWdAPtehP0HzLrPvQowz-qCR3nMARFM1rgychc8QpEtNXNGkppJGLlC4fpBcs1W2i-PJjvUgYd8~eSwm0~0IH~9mzGQBVSfmoA1gNoeU2CQTJQ19iteYwut9ecfnpmCFjMoXzqzKW4vlQ~AB~jDiCuZyFwGd-GK6QPL4p-eOpxatzJnCPGQIuLi4F873aGWaP5lwkNWzzQ8Zly~PefF0lmKAJMabsHKTqBtXyRlP5eqkcTcXxDBzfZ3xlw1fCe0Xn8wBSI4uTT-HX1cwg3vF84jfb36E2tCsM64kNpvNGos6Hmo0jSsSGSTONVs9vgkDgng__" alt="Discord Server Management">
+                <h3>Discord Server Management</h3>
+            </div>
+            <div class="service-card">
+                <img src="https://media-hosting.imagekit.io//815f41c64de94782/1%20(6).png?Expires=1836123914&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=OK3w60AJ0ikbeWtpC6RAOr2ufbgzJ3NFnyqyUgO1Aan~h2kpxmz~yoAg4OvgOIMKlxxXkkHolTuveqVpMYV39hRd1nqrnx02QcGh4QnSRvdDxdYiAUb4ISdPmKpzof9g8c6cshEJzQ~rgaJgf5DDuzggRj56m8POIk0wOKR4iKxTIudXcB-sbktfrt2VTF0D0eNJZzkNLuCqIUSqiz23Xly95AcwWhplEDej90SdGeESMQCYA4Gm5Zdb2pvLtCNsN83EjlzF9-ifK-XMGQkqcT0yRflqWkiDkOQt1~wsd-dnragsmxKiiqFfHDaZV742E-kcYFjYW8TIzikjNac4fw__" alt="Web developing">
+                <h3>Web developing</h3>
+            </div>
+            <div class="service-card">
+                <img src="https://media-hosting.imagekit.io//ecc557d1715a494b/1%20(2).png?Expires=1836123920&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=NFXQj6zDE~AIkBQ0zqFksgihDP3PXgAypwHwdj5qM64qylj19KnXV8Nu1SBwV0WvnGhQTvt8SICHjYSp4pni4Siu3NTCcWD85Cv~SzSUv6iDOKhPhjtQb0Ch-jZYArTAjQCGiFW0TapAt9uUa6eRJoz~PeT1O-SFRQs4yHzGgE9ar6uArz9rxnIbNHym0Zu-c3wwIXQfxpam0FvvUiRNY635NqXGHR8zqCrEUXonKqt8TCDxlHuh1jL2IXOEVng2Nn2SCdhxrG2wle4vbMEfbSb8s4Sx3OExAMxbF0fWoKBxRs34A3R2m6q1CHrg7nr7aS7zSjhaBoS1a6jLDk6tcw__" alt="Hosting services">
+                <h3>Hosting services</h3>
+            </div>
+             <div class="service-card">
+                <img src="https://media-hosting.imagekit.io//c0356c687e624089/1%20(8).png?Expires=1836123922&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=YP23aTubd6h6XBBnznbifkNpsxw3~nWOhp~DiQeZdWWWwaLPdWcLXHE3Zghz9-Dwf6WuPWtilxN9FxhVskbnLGgl9RvZbSRPxW9X8unLGtcRYbGzMQTnoQzx4-YIKNg47PmS6bQmKgMBCtfm5bBM5DptVU4o0btJwXnu9uMqwxqK-baKcdtYRpZioB3f7Sxm0vxFj5uHNbUbpzvTcTxOSpa8sRhrySfUsPR0w5Xjv1UrTCGgCSq4bgOg~MpKMusUKZekPFvEbyvDZRemTXrejK2AdXMTILc-kFimxqK437hVYqhokTPHp9VPuE-JTG0iwXfBL2oCsAw4OfHAigJyfQ__" alt="Web design">
+                <h3>Web design</h3>
+            </div>
+            <div class="service-card">
+                <img src="https://media-hosting.imagekit.io//d8a0f38a7fd54261/1%20(7).png?Expires=1836123926&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=g3ZROQkTVLFuCocdli968GgNWvKbhqN6NwZrU7usGAsxvdrPufZmZR0yHVG0BRaSvPMumFS5JsJ87~4~kT0L6KcQmCVyHvq0-9YyTouRboaI7LYeZBBFDqI8-~nvsr0ddKZTfCqc~thJK-JcipmD3IIvavGr-pRcc8w0pH3Scgai1bsr5Qe4PJg~mPsyOrFk8SqPnY8E~~rhI2oU0RKI7WXirapiy3UbNsRjH3JQww~ctNMU~xlD7xHR6ujgR1~ZFIGq0GCuRowUDQKgfdCoCZJOKNPJ6V~VDK1j8gl-mtrnMszNVuoZmjyx1s8HMo7~ZkfzcQG5x3XnOOOXQgPQxQ__" alt="seo optimize">
+                <h3>seo optimize</h3>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 1000, once: true });</script>
+</body>
+</html>
+
